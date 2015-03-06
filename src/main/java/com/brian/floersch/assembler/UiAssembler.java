@@ -14,7 +14,7 @@ public class UiAssembler {
     private static final String VERSION = "Version";
 
     private String mJson;
-    private ViewGroup mRootView, mParent;
+    private ViewGroup mParent;
     private RootAssembler mParser;
     private IuimEvents mEventHandler;
     private Context mContext;
@@ -30,7 +30,7 @@ public class UiAssembler {
         return mParser.getView();
     }
 
-    public void parse() throws JSONException{
+    public void parseAndApplyView() throws JSONException{
         JSONObject rootObj = new JSONObject(mJson);
 
         int version = rootObj.getInt(VERSION);

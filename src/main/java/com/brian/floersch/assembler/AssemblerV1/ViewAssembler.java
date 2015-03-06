@@ -11,6 +11,10 @@ public abstract class ViewAssembler {
     private static final String WIDTH = "width";
     private static final String HEIGHT = "height";
 
+    private static final String MATCH_DP = "\\d+dp";
+    private static final String MATCH_PX = "\\d+px";
+    private static final String STRIP_CHARS = "[^0-9]";
+
     private final JSONObject mJsonObject;
     private View mView;
     private final ViewGroup mParent;
@@ -58,13 +62,26 @@ public abstract class ViewAssembler {
     protected void applyProperties(View view, JSONObject jsonObject) throws JSONException {
 
         ViewGroup.LayoutParams params = mView.getLayoutParams();
+
         if (mJsonObject.has(WIDTH)) {
-            params.width = pxToDp(mJsonObject.getInt(WIDTH));
+            params.width = parseDim(mJsonObject.getString(WIDTH));
         }
 
         if (mJsonObject.has(HEIGHT)) {
-            params.width = pxToDp(mJsonObject.getInt(HEIGHT));
+            params.height = parseDim(mJsonObject.getString(HEIGHT));
         }
+
         mView.setLayoutParams(params);
+    }
+
+    private int parseDim(String dim) {
+        int outVal;
+        String striped = dim.replaceAll(STRIP_CHARS,"");
+        if (dim.matches(MATCH_DP)) {
+            outVal = pxToDp(Integer.parseInt(striped));
+        } else {
+            outVal = Integer.parseInt(striped);
+        }
+        return outVal;
     }
 }
