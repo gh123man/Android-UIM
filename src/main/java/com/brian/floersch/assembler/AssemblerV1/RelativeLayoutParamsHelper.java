@@ -27,6 +27,7 @@ public class RelativeLayoutParamsHelper {
     private static final String CENTER_VERTICAL = "centerVertical";
 
     public static void applyAttributes(JSONObject jsonObject, RelativeLayout.LayoutParams layoutParams) throws JSONException {
+
         applyRelativeLayoutRuleIfExists(jsonObject, layoutParams, TO_LEFT_OF, RelativeLayout.LEFT_OF);
         applyRelativeLayoutRuleIfExists(jsonObject, layoutParams, TO_RIGHT_OF, RelativeLayout.RIGHT_OF);
         applyRelativeLayoutRuleIfExists(jsonObject, layoutParams, BELOW, RelativeLayout.BELOW);

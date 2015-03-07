@@ -1,5 +1,6 @@
 package com.brian.floersch.assembler.AssemblerV1;
 
+import android.content.Context;
 import android.widget.LinearLayout;
 
 import org.json.JSONException;
