@@ -26,7 +26,6 @@ public class RootAssembler {
     public void parse() throws JSONException {
 
         Iterator<?> keys = mJsonObject.keys();
-
         while (keys.hasNext()) {
             String key = (String) keys.next();
             if (mJsonObject.get(key) instanceof JSONObject) {

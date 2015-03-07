@@ -93,7 +93,7 @@ public class LayoutAssembler extends ViewAssembler {
         if (view instanceof LinearLayout) {
             if (jsonObject.has(ORIENTATION)) {
                 LinearLayout l = (LinearLayout) view;
-                l.setOrientation(jsonObject.getString(ORIENTATION) == VERTICAL ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
+                l.setOrientation(jsonObject.getString(ORIENTATION).equals(VERTICAL) ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
             } else {
                 ((LinearLayout) view).setOrientation(LinearLayout.VERTICAL);
             }

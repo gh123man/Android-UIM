@@ -11,9 +11,11 @@ public abstract class ViewAssembler {
     private static final String WIDTH = "width";
     private static final String HEIGHT = "height";
 
-    private static final String MATCH_DP = "\\d+dp";
-    private static final String MATCH_PX = "\\d+px";
+    private static final String MATCH_DP = "^\\d+dp$";
+    private static final String MATCH_PX = "^\\d+px$";
     private static final String STRIP_CHARS = "[^0-9]";
+    private static final String MATCH_WRAP_CONTENT = "^wrap_content$";
+    private static final String MATCH_MATCH_PARENT = "^match_parent$";
 
     private final JSONObject mJsonObject;
     private View mView;
@@ -61,6 +63,10 @@ public abstract class ViewAssembler {
 
     protected void applyProperties(View view, JSONObject jsonObject) throws JSONException {
 
+        if (mJsonObject.has("id")) {
+            mView.setId(mJsonObject.getString("id").hashCode());
+        }
+
         ViewGroup.LayoutParams params = mView.getLayoutParams();
 
         if (mJsonObject.has(WIDTH)) {
@@ -79,8 +85,14 @@ public abstract class ViewAssembler {
         String striped = dim.replaceAll(STRIP_CHARS,"");
         if (dim.matches(MATCH_DP)) {
             outVal = pxToDp(Integer.parseInt(striped));
-        } else {
+        } else if (dim.matches(MATCH_PX)) {
             outVal = Integer.parseInt(striped);
+        } else if (dim.matches(MATCH_MATCH_PARENT)) {
+            outVal = ViewGroup.LayoutParams.MATCH_PARENT;
+        } else if (dim.matches(MATCH_WRAP_CONTENT)) {
+            outVal = ViewGroup.LayoutParams.WRAP_CONTENT;
+        } else { //DEFAULT (MAY CHANGE)
+            outVal = ViewGroup.LayoutParams.WRAP_CONTENT;
         }
         return outVal;
     }
