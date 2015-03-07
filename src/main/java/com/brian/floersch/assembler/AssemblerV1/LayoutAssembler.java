@@ -15,8 +15,6 @@ public class LayoutAssembler extends ViewAssembler {
 
     private static final String LINEAR_LAYOUT = "LinearLayout";
     private static final String RELATIVE_LAYOUT = "RelativeLayout";
-    private static final String ORIENTATION = "orientation";
-    private static final String VERTICAL = "vertical";
 
     private static final String CHILDREN = "children";
 
@@ -91,12 +89,7 @@ public class LayoutAssembler extends ViewAssembler {
         super.applyProperties(view, jsonObject);
 
         if (view instanceof LinearLayout) {
-            if (jsonObject.has(ORIENTATION)) {
-                LinearLayout l = (LinearLayout) view;
-                l.setOrientation(jsonObject.getString(ORIENTATION).equals(VERTICAL) ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
-            } else {
-                ((LinearLayout) view).setOrientation(LinearLayout.VERTICAL);
-            }
+            LinearLayourAttributeHelper.applyAttributes(jsonObject, (LinearLayout) view);
         }
     }
 }

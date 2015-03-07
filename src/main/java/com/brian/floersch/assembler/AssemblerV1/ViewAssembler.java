@@ -2,6 +2,8 @@ package com.brian.floersch.assembler.AssemblerV1;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -75,6 +77,16 @@ public abstract class ViewAssembler {
 
         if (mJsonObject.has(HEIGHT)) {
             params.height = parseDim(mJsonObject.getString(HEIGHT));
+        }
+
+        if (view.getParent() instanceof RelativeLayout) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
+            RelativeLayoutParamsHelper.applyAttributes(jsonObject, layoutParams);
+        }
+
+        if (view.getParent() instanceof LinearLayout) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
+            LinearLayoutParamsHelper.applyAttributes(jsonObject, layoutParams);
         }
 
         mView.setLayoutParams(params);
