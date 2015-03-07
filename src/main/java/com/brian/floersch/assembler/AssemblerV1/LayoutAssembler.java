@@ -71,16 +71,11 @@ public class LayoutAssembler extends ViewAssembler {
 
     private LinearLayout assembleLinearLayout() {
         LinearLayout l = new LinearLayout(getAssemblerContext().getContext());
-        l.setOrientation(LinearLayout.VERTICAL);
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        l.setLayoutParams(params);
         return l;
     }
 
     private RelativeLayout assembleRelativeLayout() {
         RelativeLayout l = new RelativeLayout(getAssemblerContext().getContext());
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        l.setLayoutParams(params);
         return l;
     }
 
@@ -90,6 +85,10 @@ public class LayoutAssembler extends ViewAssembler {
 
         if (view instanceof LinearLayout) {
             LinearLayourAttributeHelper.applyAttributes(jsonObject, (LinearLayout) view);
+        }
+
+        if (view instanceof RelativeLayout) {
+            RelativeLayourAttributeHelper.applyAttributes(jsonObject, (RelativeLayout) view);
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.brian.floersch.assembler.AssemblerV1;
 
-import android.content.Context;
 import android.widget.LinearLayout;
 
 import org.json.JSONException;
@@ -17,7 +16,7 @@ public class LinearLayoutParamsHelper {
     public static void applyAttributes(JSONObject jsonObject, LinearLayout.LayoutParams layoutParams) throws JSONException {
 
         if (jsonObject.has(GRAVITY)) {
-            layoutParams.gravity = LinearLayourAttributeHelper.GRAVITY_MAP.get(jsonObject.getString(GRAVITY));
+            layoutParams.gravity = ViewAttributeHelper.parseGravity(jsonObject.getString(GRAVITY));
         }
 
         if (jsonObject.has(WEIGHT)) {

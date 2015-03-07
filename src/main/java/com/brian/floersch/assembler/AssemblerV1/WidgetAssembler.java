@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class WidgetAssembler extends ViewAssembler {
 
     private static final String BUTTON = "Button";
-    private static final String TEXT = "text";
 
     public static final ArrayList<String> WIDGETS = new ArrayList<String>() {{
         add(BUTTON);
@@ -45,9 +44,7 @@ public class WidgetAssembler extends ViewAssembler {
         super.applyProperties(view, jsonObject);
 
         if (view instanceof TextView) {
-            if (jsonObject.has(TEXT)) {
-                ((TextView) view).setText(jsonObject.getString(TEXT));
-            }
+            TextViewAttributeHelper.applyAttributes(jsonObject, (TextView) view);
         }
 
     }
