@@ -16,7 +16,7 @@ public class LayoutAssembler extends ViewAssembler {
     private static final String LINEAR_LAYOUT = "LinearLayout";
     private static final String RELATIVE_LAYOUT = "RelativeLayout";
 
-    private static final String CHILDREN = "children";
+    private static final String CHILDREN = "uim_children";
 
     public static final ArrayList<String> LAYOUTS = new ArrayList<String>() {{
         add(LINEAR_LAYOUT);

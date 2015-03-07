@@ -11,8 +11,8 @@ import org.json.JSONObject;
  */
 public class ViewGroupParamsHelper {
 
-    private static final String WIDTH = "width";
-    private static final String HEIGHT = "height";
+    private static final String WIDTH = "layout_width";
+    private static final String HEIGHT = "layout_height";
 
     public static void applyAttributes(JSONObject jsonObject, ViewGroup.LayoutParams params, Context context) throws JSONException {
 

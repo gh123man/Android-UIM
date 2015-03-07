@@ -10,21 +10,21 @@ import org.json.JSONObject;
  */
 public class RelativeLayoutParamsHelper {
 
-    private static final String TO_LEFT_OF = "toLeftOf";
-    private static final String TO_RIGHT_OF = "toRightOf";
-    private static final String BELOW = "below";
-    private static final String ABOVE = "above";
-    private static final String ALIGN_PARENT_TOP = "alignParentTop";
-    private static final String ALIGN_PARENT_BOTTOM = "alignParentBottom";
-    private static final String ALIGN_PARENT_RIGHT = "alignParentRight";
-    private static final String ALIGN_PARENT_LEFT = "alignParentLeft";
-    private static final String ALIGN_BASELINE = "alignBaseline";
-    private static final String ALIGN_LEFT = "alignLeft";
-    private static final String ALIGN_RIGHT = "alignRight";
-    private static final String ALIGN_TOP = "alignRight";
-    private static final String CENTER_HORIZONTAL = "centerHorizontal";
-    private static final String CENTER_IN_PARENT = "centerInParent";
-    private static final String CENTER_VERTICAL = "centerVertical";
+    private static final String TO_LEFT_OF = "layout_toLeftOf";
+    private static final String TO_RIGHT_OF = "layout_toRightOf";
+    private static final String BELOW = "layout_below";
+    private static final String ABOVE = "layout_above";
+    private static final String ALIGN_PARENT_TOP = "layout_alignParentTop";
+    private static final String ALIGN_PARENT_BOTTOM = "layout_alignParentBottom";
+    private static final String ALIGN_PARENT_RIGHT = "layout_alignParentRight";
+    private static final String ALIGN_PARENT_LEFT = "layout_alignParentLeft";
+    private static final String ALIGN_BASELINE = "layout_alignBaseline";
+    private static final String ALIGN_LEFT = "layout_alignLeft";
+    private static final String ALIGN_RIGHT = "layout_alignRight";
+    private static final String ALIGN_TOP = "layout_alignRight";
+    private static final String CENTER_HORIZONTAL = "layout_centerHorizontal";
+    private static final String CENTER_IN_PARENT = "layout_centerInParent";
+    private static final String CENTER_VERTICAL = "layout_centerVertical";
 
     public static void applyAttributes(JSONObject jsonObject, RelativeLayout.LayoutParams layoutParams) throws JSONException {
 

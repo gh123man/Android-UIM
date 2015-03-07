@@ -11,10 +11,10 @@ import org.json.JSONObject;
  */
 public class MarginLayoutParamsHelper {
 
-    private static final String MARGIN_BOTTOM = "marginBottom";
-    private static final String MARGIN_TOP = "marginTop";
-    private static final String MARGIN_LEFT = "marginLeft";
-    private static final String MARGIN_RIGHT = "marginRight";
+    private static final String MARGIN_BOTTOM = "layout_marginBottom";
+    private static final String MARGIN_TOP = "layout_marginTop";
+    private static final String MARGIN_LEFT = "layout_marginLeft";
+    private static final String MARGIN_RIGHT = "layout_marginRight";
 
     public static void applyAttributes(JSONObject jsonObject, ViewGroup.MarginLayoutParams params, Context context) throws JSONException {
 
