@@ -46,9 +46,12 @@ public abstract class ViewAssembler {
         return mJsonObject;
     }
 
-    protected void setView(View view) {
+    protected void setView(View view) throws JSONException {
         mView = view;
         mParent.addView(mView);
+        if (mJsonObject.has(ID)) {
+            mView.setTag(mJsonObject.getString(ID));
+        }
     }
 
     protected void applyProperties(View view, JSONObject jsonObject) throws JSONException {

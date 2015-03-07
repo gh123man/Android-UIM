@@ -13,9 +13,11 @@ import java.util.ArrayList;
 public class WidgetAssembler extends ViewAssembler {
 
     private static final String BUTTON = "Button";
+    private static final String TEXT_VIEW = "TextView";
 
     public static final ArrayList<String> WIDGETS = new ArrayList<String>() {{
         add(BUTTON);
+        add(TEXT_VIEW);
     }};
 
     private String mLayoutType;
@@ -26,10 +28,13 @@ public class WidgetAssembler extends ViewAssembler {
     }
 
     @Override
-    public void setUpView() {
+    public void setUpView() throws JSONException  {
         switch (mLayoutType) {
             case BUTTON:
                 setView(assembleButton());
+                break;
+            case TEXT_VIEW:
+                setView(assembleTextView());
                 break;
         }
     }
@@ -39,9 +44,16 @@ public class WidgetAssembler extends ViewAssembler {
         return button;
     }
 
+    private TextView assembleTextView() {
+        TextView tv = new TextView(getAssemblerContext().getContext());
+        return tv;
+    }
+
     @Override
     protected void applyProperties(View view, JSONObject jsonObject) throws JSONException {
         super.applyProperties(view, jsonObject);
+
+        view.setOnClickListener(getAssemblerContext().getEventHandler());
 
         if (view instanceof TextView) {
             TextViewAttributeHelper.applyAttributes(jsonObject, (TextView) view);

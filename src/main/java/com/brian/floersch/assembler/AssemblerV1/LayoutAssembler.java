@@ -59,6 +59,10 @@ public class LayoutAssembler extends ViewAssembler {
                 assembler = new WidgetAssembler(obj.getJSONObject(key), getAssemblerContext(), getView(), key);
             }
 
+            if (assembler == null) {
+                throw new JSONException("Error in JSON or unsupported view");
+            }
+
             assembler.parse();
 
         }
