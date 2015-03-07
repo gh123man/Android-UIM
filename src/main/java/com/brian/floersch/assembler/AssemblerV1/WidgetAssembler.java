@@ -3,6 +3,7 @@ package com.brian.floersch.assembler.AssemblerV1;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -14,10 +15,12 @@ public class WidgetAssembler extends ViewAssembler {
 
     private static final String BUTTON = "Button";
     private static final String TEXT_VIEW = "TextView";
+    private static final String SEEK_BAR = "SeekBar";
 
     public static final ArrayList<String> WIDGETS = new ArrayList<String>() {{
         add(BUTTON);
         add(TEXT_VIEW);
+        add(SEEK_BAR);
     }};
 
     private String mLayoutType;
@@ -36,6 +39,9 @@ public class WidgetAssembler extends ViewAssembler {
             case TEXT_VIEW:
                 setView(assembleTextView());
                 break;
+            case SEEK_BAR:
+                setView(assembleSeekBar());
+                break;
         }
     }
 
@@ -49,14 +55,22 @@ public class WidgetAssembler extends ViewAssembler {
         return tv;
     }
 
+    private SeekBar assembleSeekBar() {
+        SeekBar seekBar = new SeekBar(getAssemblerContext().getContext());
+        return seekBar;
+    }
+
     @Override
     protected void applyProperties(View view, JSONObject jsonObject) throws JSONException {
         super.applyProperties(view, jsonObject);
 
-        view.setOnClickListener(getAssemblerContext().getEventHandler());
-
         if (view instanceof TextView) {
             TextViewAttributeHelper.applyAttributes(jsonObject, (TextView) view);
+            view.setOnClickListener(getAssemblerContext().getEventHandler());
+        }
+
+        if (view instanceof SeekBar) {
+            ((SeekBar) view).setOnSeekBarChangeListener(getAssemblerContext().getEventHandler());
         }
 
     }
