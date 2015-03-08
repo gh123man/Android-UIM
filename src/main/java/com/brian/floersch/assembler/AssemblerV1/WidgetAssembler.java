@@ -17,6 +17,7 @@ public class WidgetAssembler extends ViewAssembler {
     private static final String BUTTON = "Button";
     private static final String TEXT_VIEW = "TextView";
     private static final String SEEK_BAR = "SeekBar";
+    private static final String EVENT_PACKAGE = "uim_package";
 
     public static final ArrayList<String> WIDGETS = new ArrayList<String>() {{
         add(BUTTON);
@@ -65,8 +66,8 @@ public class WidgetAssembler extends ViewAssembler {
     protected void applyProperties(View view, JSONObject jsonObject) throws JSONException {
         super.applyProperties(view, jsonObject);
 
-        if (jsonObject.has("uim_package") && jsonObject.has(ID)) {
-            getAssemblerContext().getEventHandler().addEventPackage(jsonObject.getString(ID), unpackEventPackage(jsonObject.getJSONArray("uim_package")));
+        if (jsonObject.has(EVENT_PACKAGE) && jsonObject.has(ID)) {
+            getAssemblerContext().getEventHandler().addEventPackage(jsonObject.getString(ID), unpackEventPackage(jsonObject.getJSONArray(EVENT_PACKAGE)));
         }
 
         if (view instanceof TextView) {

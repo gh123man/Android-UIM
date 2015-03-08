@@ -1,10 +1,11 @@
 package com.brian.floersch.assembler;
 
 import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
 
-import com.brian.floersch.assembler.AssemblerV1.UimContext;
 import com.brian.floersch.assembler.AssemblerV1.RootAssembler;
+import com.brian.floersch.assembler.AssemblerV1.UimContext;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,8 +42,9 @@ public class UiAssembler {
                 mParser.parse();
                 break;
         }
+    }
 
-
-
+    public View getViewByStringId(String id) {
+        return mParent.findViewById(id.hashCode());
     }
 }
