@@ -1,4 +1,4 @@
-package com.brian.floersch.assembler.AssemblerV1;
+package com.brian.floersch.uim.AssemblerV1;
 
 import android.content.Context;
 import android.view.Gravity;

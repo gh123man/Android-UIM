@@ -1,10 +1,10 @@
-package com.brian.floersch.assembler.AssemblerV1;
+package com.brian.floersch.uim.AssemblerV1;
 
 import android.content.Context;
 import android.view.View;
 
-import com.brian.floersch.assembler.AssemblerV1.events.GlobalEventHandler;
-import com.brian.floersch.assembler.IuimEvents;
+import com.brian.floersch.uim.AssemblerV1.events.GlobalEventHandler;
+import com.brian.floersch.uim.IuimEvents;
 
 /**
  * Created by brian on 3/1/15.

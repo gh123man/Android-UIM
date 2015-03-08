@@ -1,21 +1,25 @@
 #Android User Interface Markup (UIM)
 
-UIM enables developers to build android apps with dynamic user interfaces. UIs are generated with JSON objects passed as strings.
+UIM enables developers to build android apps with dynamic user interfaces. UIs are generated with JSON objects.
+
 
 ##Features
+ - Build UIs in real time
+ - Capture events in a global event handler
+ - Support for many android UI APIs. (More coming soon)
+ - Package views together in an event (more on this in Handling Events)
+
+##TODO
  - Add more View property support
  - Add more native views (and their events)
- - Support for many android UI APIs. (More coming soon)
- 
+
 ##Usage
-    More documentation coming soon
+ 1. Implement `IuimEvents`
+ 2. Construct a `UiAssembler`
+ 3. call `UiAssembler.parseAndApplyView()` when you are ready to build the UI and set up event handlers. `.parseAndApplyView()` will automatically add the new view to the parent you supplied in the constructor. 
  
 ##Handling Events
     More documentation coming soon
-
-##TODO
- - Build UIs in real time
- - capture events in a global event handler
 
 ##Example
 

@@ -1,4 +1,4 @@
-package com.brian.floersch.assembler;
+package com.brian.floersch.uim;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

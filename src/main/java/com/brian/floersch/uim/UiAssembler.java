@@ -1,11 +1,11 @@
-package com.brian.floersch.assembler;
+package com.brian.floersch.uim;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.brian.floersch.assembler.AssemblerV1.RootAssembler;
-import com.brian.floersch.assembler.AssemblerV1.UimContext;
+import com.brian.floersch.uim.AssemblerV1.RootAssembler;
+import com.brian.floersch.uim.AssemblerV1.UimContext;
 
 import org.json.JSONException;
 import org.json.JSONObject;

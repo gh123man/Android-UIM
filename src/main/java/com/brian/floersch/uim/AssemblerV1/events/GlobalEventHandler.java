@@ -1,9 +1,9 @@
-package com.brian.floersch.assembler.AssemblerV1.events;
+package com.brian.floersch.uim.AssemblerV1.events;
 
 import android.view.View;
 import android.widget.SeekBar;
 
-import com.brian.floersch.assembler.IuimEvents;
+import com.brian.floersch.uim.IuimEvents;
 
 import java.util.ArrayList;
 import java.util.HashMap;
