@@ -3,7 +3,7 @@ package com.brian.floersch.assembler;
 import android.content.Context;
 import android.view.ViewGroup;
 
-import com.brian.floersch.assembler.AssemblerV1.AssemblerContext;
+import com.brian.floersch.assembler.AssemblerV1.UimContext;
 import com.brian.floersch.assembler.AssemblerV1.RootAssembler;
 
 import org.json.JSONException;
@@ -37,7 +37,7 @@ public class UiAssembler {
 
         switch (version) {
             case 1:
-                mParser = new RootAssembler(rootObj, new AssemblerContext(mEventHandler, mContext), mParent);
+                mParser = new RootAssembler(rootObj, new UimContext(mEventHandler, mContext, mParent), mParent);
                 mParser.parse();
                 break;
         }

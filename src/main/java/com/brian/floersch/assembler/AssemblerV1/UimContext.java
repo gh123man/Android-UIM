@@ -1,6 +1,7 @@
 package com.brian.floersch.assembler.AssemblerV1;
 
 import android.content.Context;
+import android.view.View;
 
 import com.brian.floersch.assembler.AssemblerV1.events.GlobalEventHandler;
 import com.brian.floersch.assembler.IuimEvents;
@@ -8,12 +9,12 @@ import com.brian.floersch.assembler.IuimEvents;
 /**
  * Created by brian on 3/1/15.
  */
-public class AssemblerContext {
+public class UimContext {
     private GlobalEventHandler mEventHandler;
     private Context mContext;
 
-    public AssemblerContext(IuimEvents uimEvents, Context context) {
-        mEventHandler = new GlobalEventHandler(uimEvents);
+    public UimContext(IuimEvents uimEvents, Context context, View rootView) {
+        mEventHandler = new GlobalEventHandler(uimEvents, rootView);
         mContext = context;
     }
 

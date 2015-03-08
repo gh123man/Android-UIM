@@ -25,8 +25,8 @@ public class LayoutAssembler extends ViewAssembler {
 
     private String mLayoutType;
 
-    public LayoutAssembler(JSONObject jsonObject, AssemblerContext assemblerContext, ViewGroup parent, String key) {
-        super(jsonObject, assemblerContext, parent);
+    public LayoutAssembler(JSONObject jsonObject, UimContext uimContext, ViewGroup parent, String key) {
+        super(jsonObject, uimContext, parent);
         mLayoutType = key;
     }
 

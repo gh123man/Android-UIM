@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -25,8 +26,8 @@ public class WidgetAssembler extends ViewAssembler {
 
     private String mLayoutType;
 
-    public WidgetAssembler(JSONObject jsonObject, AssemblerContext assemblerContext, ViewGroup parent, String key) {
-        super(jsonObject, assemblerContext, parent);
+    public WidgetAssembler(JSONObject jsonObject, UimContext uimContext, ViewGroup parent, String key) {
+        super(jsonObject, uimContext, parent);
         mLayoutType = key;
     }
 
@@ -64,6 +65,10 @@ public class WidgetAssembler extends ViewAssembler {
     protected void applyProperties(View view, JSONObject jsonObject) throws JSONException {
         super.applyProperties(view, jsonObject);
 
+        if (jsonObject.has("uim_package") && jsonObject.has(ID)) {
+            getAssemblerContext().getEventHandler().addEventPackage(jsonObject.getString(ID), unpackEventPackage(jsonObject.getJSONArray("uim_package")));
+        }
+
         if (view instanceof TextView) {
             TextViewAttributeHelper.applyAttributes(jsonObject, (TextView) view);
             view.setOnClickListener(getAssemblerContext().getEventHandler());
@@ -73,6 +78,14 @@ public class WidgetAssembler extends ViewAssembler {
             ((SeekBar) view).setOnSeekBarChangeListener(getAssemblerContext().getEventHandler());
         }
 
+    }
+
+    private String[] unpackEventPackage(JSONArray arr) throws JSONException {
+        String[] outArr = new String[arr.length()];
+        for (int i = 0; i < arr.length(); i++) {
+            outArr[i] = arr.getString(i);
+        }
+        return outArr;
     }
 
 

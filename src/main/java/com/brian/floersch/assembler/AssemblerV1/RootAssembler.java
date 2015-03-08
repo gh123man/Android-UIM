@@ -10,12 +10,12 @@ import java.util.Iterator;
 public class RootAssembler {
 
     private ViewGroup mRootView, mParent;
-    private AssemblerContext mAssemblerContext;
+    private UimContext mUimContext;
     private JSONObject mJsonObject;
 
-    public RootAssembler(JSONObject jsonObject, AssemblerContext assemblerContext, ViewGroup parent) {
+    public RootAssembler(JSONObject jsonObject, UimContext uimContext, ViewGroup parent) {
         mJsonObject = jsonObject;
-        mAssemblerContext = assemblerContext;
+        mUimContext = uimContext;
         mParent = parent;
     }
 
@@ -30,7 +30,7 @@ public class RootAssembler {
             String key = (String) keys.next();
             if (mJsonObject.get(key) instanceof JSONObject) {
                 if (LayoutAssembler.LAYOUTS.contains(key)) {
-                    ViewAssembler assembler = new LayoutAssembler((JSONObject) mJsonObject.get(key), mAssemblerContext, mParent, key);
+                    ViewAssembler assembler = new LayoutAssembler((JSONObject) mJsonObject.get(key), mUimContext, mParent, key);
                     assembler.parse();
                     mRootView = (ViewGroup) assembler.getView();
                 }

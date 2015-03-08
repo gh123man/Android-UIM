@@ -10,16 +10,16 @@ import org.json.JSONObject;
 
 public abstract class ViewAssembler {
 
-    private static final String ID = "id";
+    public static final String ID = "id";
 
     private final JSONObject mJsonObject;
     private View mView;
     private final ViewGroup mParent;
-    private final AssemblerContext mAssemblerContext;
+    private final UimContext mUimContext;
 
-    public ViewAssembler(JSONObject jsonObject, AssemblerContext assemblerContext, ViewGroup parent) {
+    public ViewAssembler(JSONObject jsonObject, UimContext uimContext, ViewGroup parent) {
         mJsonObject = jsonObject;
-        mAssemblerContext = assemblerContext;
+        mUimContext = uimContext;
         mParent = parent;
     }
 
@@ -34,8 +34,8 @@ public abstract class ViewAssembler {
         return mView;
     }
 
-    public AssemblerContext getAssemblerContext() {
-        return mAssemblerContext;
+    public UimContext getAssemblerContext() {
+        return mUimContext;
     }
 
     public ViewGroup getParent() {
