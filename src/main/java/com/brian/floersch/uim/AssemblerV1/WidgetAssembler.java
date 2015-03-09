@@ -17,7 +17,7 @@ public class WidgetAssembler extends ViewAssembler {
     private static final String BUTTON = "Button";
     private static final String TEXT_VIEW = "TextView";
     private static final String SEEK_BAR = "SeekBar";
-    private static final String EVENT_PACKAGE = "uim_package";
+    private static final String EVENT_PACKAGE = "uim_eventPackage";
 
     public static final ArrayList<String> WIDGETS = new ArrayList<String>() {{
         add(BUTTON);
