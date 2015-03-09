@@ -69,7 +69,6 @@ This method is called whenever a view receives a supported event. The event clas
                 {
                     "SeekBar": {
                         "id": "test2",
-                        "text": "test2",
                         "layout_width": "match_parent",
                         "layout_height": "wrap_content"
                     }
