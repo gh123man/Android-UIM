@@ -36,7 +36,7 @@ All listed views and layouts are supported to some degree.
     - [SeekBar.OnSeekBarChangeListener.onStopTrackingTouch](http://developer.android.com/reference/android/widget/SeekBar.OnSeekBarChangeListener.html#onStopTrackingTouch(android.widget.SeekBar)) - handled
 
 ##Special JSON Attributes
-Atribute            |     asdf
+Attribute            |     Description
 --------            |     ----
 `uim_children`      | An array of children, can be any view or layout
 `uim_eventPackage`  | An array of string IDs of other elements. These elements will be packaged in the event propagated by the view this is attached to. 
