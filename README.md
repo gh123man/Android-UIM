@@ -27,7 +27,8 @@ All listed views and layouts are supported to some degree.
  - [RelativeLayout.LayoutParams](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html) - complete
  - [ViewGroup.MarginLayoutParams](http://developer.android.com/reference/android/view/ViewGroup.MarginLayoutParams.html) - complete
  - [ViewGroup.LayoutParams](http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html) - complete
- - [View](http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html) - very incomplete
+ - [ViewGroup](http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html) - complete
+ - [View](http://developer.android.com/reference/android/view/View.html) - very incomplete
  - [TextView](http://developer.android.com/reference/android/widget/TextView.html) - very incomplete
     - [View.OnClickListener.onClick](http://developer.android.com/reference/android/view/View.OnClickListener.html#onClick(android.view.View)) handled
  - [Button](http://developer.android.com/reference/android/widget/Button.html) - complete, but missing inherited text view components

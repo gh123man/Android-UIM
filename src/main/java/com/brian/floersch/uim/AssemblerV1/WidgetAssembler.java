@@ -89,5 +89,4 @@ public class WidgetAssembler extends ViewAssembler {
         return outArr;
     }
 
-
 }

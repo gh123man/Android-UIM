@@ -13,7 +13,6 @@ public class LinearLayourAttributeHelper {
     private static final String BASELINE_ALIGNED = "baselineAligned";
     private static final String BASELINE_ALIGNED_CHILD_INDEX = "baselineAlignedChildIndex";
     private static final String GRAVITY = "layout_gravity";
-    private static final String MEASURE_WITH_LARGEST_CHILD = "measureWithLargestChild";
     private static final String ORIENTATION = "orientation";
     private static final String VERTICAL = "vertical";
 
@@ -29,14 +28,6 @@ public class LinearLayourAttributeHelper {
 
         if (jsonObject.has(GRAVITY)) {
             layout.setGravity(ViewAttributeHelper.parseGravity(jsonObject.getString(GRAVITY)));
-        }
-
-        if (jsonObject.has(MEASURE_WITH_LARGEST_CHILD)) {
-            layout.setMeasureWithLargestChildEnabled(jsonObject.getBoolean(MEASURE_WITH_LARGEST_CHILD));
-        }
-
-        if (jsonObject.has(MEASURE_WITH_LARGEST_CHILD)) {
-            layout.setMeasureWithLargestChildEnabled(jsonObject.getBoolean(MEASURE_WITH_LARGEST_CHILD));
         }
 
         if (jsonObject.has(ORIENTATION)) {

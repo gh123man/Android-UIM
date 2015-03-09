@@ -60,8 +60,9 @@ public abstract class ViewAssembler {
             mView.setId(mJsonObject.getString(ID).hashCode());
         }
 
-        ViewGroup.LayoutParams params = view.getLayoutParams();
+        ViewAttributeHelper.applyAttributes(jsonObject, mView, getAssemblerContext().getContext());
 
+        ViewGroup.LayoutParams params = view.getLayoutParams();
         ViewGroupParamsHelper.applyAttributes(jsonObject, params, getAssemblerContext().getContext());
 
         if (params instanceof ViewGroup.MarginLayoutParams) {
