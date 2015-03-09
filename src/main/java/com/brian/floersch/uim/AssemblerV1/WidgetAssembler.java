@@ -6,7 +6,6 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -17,7 +16,7 @@ public class WidgetAssembler extends ViewAssembler {
     private static final String BUTTON = "Button";
     private static final String TEXT_VIEW = "TextView";
     private static final String SEEK_BAR = "SeekBar";
-    private static final String EVENT_PACKAGE = "uim_eventPackage";
+    private static final String ON_STOP_TRACKING_TOUCH = "onStopTrackingTouch";
 
     public static final ArrayList<String> WIDGETS = new ArrayList<String>() {{
         add(BUTTON);
@@ -66,27 +65,17 @@ public class WidgetAssembler extends ViewAssembler {
     protected void applyProperties(View view, JSONObject jsonObject) throws JSONException {
         super.applyProperties(view, jsonObject);
 
-        if (jsonObject.has(EVENT_PACKAGE) && jsonObject.has(ID)) {
-            getAssemblerContext().getEventHandler().addEventPackage(jsonObject.getString(ID), unpackEventPackage(jsonObject.getJSONArray(EVENT_PACKAGE)));
-        }
+
 
         if (view instanceof TextView) {
             TextViewAttributeHelper.applyAttributes(jsonObject, (TextView) view);
-            view.setOnClickListener(getAssemblerContext().getEventHandler());
         }
 
-        if (view instanceof SeekBar) {
+        if (view instanceof SeekBar && hasEvent(ON_STOP_TRACKING_TOUCH)) {
             ((SeekBar) view).setOnSeekBarChangeListener(getAssemblerContext().getEventHandler());
         }
 
     }
 
-    private String[] unpackEventPackage(JSONArray arr) throws JSONException {
-        String[] outArr = new String[arr.length()];
-        for (int i = 0; i < arr.length(); i++) {
-            outArr[i] = arr.getString(i);
-        }
-        return outArr;
-    }
 
 }

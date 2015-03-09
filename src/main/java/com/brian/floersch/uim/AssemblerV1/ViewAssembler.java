@@ -5,17 +5,24 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public abstract class ViewAssembler {
 
     public static final String ID = "id";
+    private static final String EVENT_PACKAGE = "uim_eventPackage";
+    private static final String UIM_HANDLE_EVENT = "uim_handleEvents";
+    private static final String ON_CLICK = "onClick";
 
     private final JSONObject mJsonObject;
     private View mView;
     private final ViewGroup mParent;
     private final UimContext mUimContext;
+    private ArrayList<String> mEventsToHanlde;
 
     public ViewAssembler(JSONObject jsonObject, UimContext uimContext, ViewGroup parent) {
         mJsonObject = jsonObject;
@@ -25,6 +32,7 @@ public abstract class ViewAssembler {
 
     public void parse() throws JSONException {
         setUpView();
+        setUpEventsToHanlde();
         applyProperties(mView, mJsonObject);
     }
 
@@ -65,6 +73,14 @@ public abstract class ViewAssembler {
         ViewGroup.LayoutParams params = view.getLayoutParams();
         ViewGroupParamsHelper.applyAttributes(jsonObject, params, getAssemblerContext().getContext());
 
+        if (jsonObject.has(EVENT_PACKAGE) && jsonObject.has(ID)) {
+            getAssemblerContext().getEventHandler().addEventPackage(jsonObject.getString(ID), unpackEventPackage(jsonObject.getJSONArray(EVENT_PACKAGE)));
+        }
+
+        if (hasEvent(ON_CLICK)) {
+            view.setOnClickListener(getAssemblerContext().getEventHandler());
+        }
+
         if (params instanceof ViewGroup.MarginLayoutParams) {
             MarginLayoutParamsHelper.applyAttributes(jsonObject, (ViewGroup.MarginLayoutParams) params, getAssemblerContext().getContext());
         }
@@ -78,6 +94,29 @@ public abstract class ViewAssembler {
         }
 
         mView.setLayoutParams(params);
+    }
+
+    private void setUpEventsToHanlde() throws JSONException {
+        if (mJsonObject.has(UIM_HANDLE_EVENT)) {
+            JSONArray arr = mJsonObject.getJSONArray(UIM_HANDLE_EVENT);
+            mEventsToHanlde = new ArrayList<>();
+            for (int i = 0; i < arr.length(); i++) {
+                mEventsToHanlde.add(arr.getString(i));
+            }
+        }
+    }
+
+
+    public boolean hasEvent(String event) {
+        return mEventsToHanlde != null && mEventsToHanlde.contains(event);
+    }
+
+    private String[] unpackEventPackage(JSONArray arr) throws JSONException {
+        String[] outArr = new String[arr.length()];
+        for (int i = 0; i < arr.length(); i++) {
+            outArr[i] = arr.getString(i);
+        }
+        return outArr;
     }
 
 }

@@ -29,18 +29,18 @@ All listed views and layouts are supported to some degree.
  - [ViewGroup.LayoutParams](http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html) - complete
  - [ViewGroup](http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html) - complete
  - [View](http://developer.android.com/reference/android/view/View.html) - very incomplete
+ - [View.OnClickListener.onClick](http://developer.android.com/reference/android/view/View.OnClickListener.html#onClick(android.view.View)) handled
  - [TextView](http://developer.android.com/reference/android/widget/TextView.html) - very incomplete
-    - [View.OnClickListener.onClick](http://developer.android.com/reference/android/view/View.OnClickListener.html#onClick(android.view.View)) handled
  - [Button](http://developer.android.com/reference/android/widget/Button.html) - complete, but missing inherited text view components
-    - [View.OnClickListener.onClick](http://developer.android.com/reference/android/view/View.OnClickListener.html#onClick(android.view.View)) handled
  - [SeekBar](http://developer.android.com/reference/android/widget/SeekBar.html) - incomplete
-    - [SeekBar.OnSeekBarChangeListener.onStopTrackingTouch](http://developer.android.com/reference/android/widget/SeekBar.OnSeekBarChangeListener.html#onStopTrackingTouch(android.widget.SeekBar)) - handled
+ - [SeekBar.OnSeekBarChangeListener.onStopTrackingTouch](http://developer.android.com/reference/android/widget/SeekBar.OnSeekBarChangeListener.html#onStopTrackingTouch(android.widget.SeekBar)) - handled
 
 ##Special JSON Attributes
-Attribute            |     Description
---------            |     ----
+Attribute           |     Description
+---------           |     -----------
 `uim_children`      | An array of children, can be any view or layout
 `uim_eventPackage`  | An array of string IDs of other elements. These elements will be packaged in the event propagated by the view this is attached to. 
+`uim_handleEvents`  | An array of string of supported events. Only events supported by the view will be handled.  
 
 ##Handling Events
 When you implement `IuimEvents`, you must override `onEvent(Event event)`.
@@ -61,6 +61,9 @@ This method is called whenever a view receives a supported event. The event clas
                         "gravity": "left|center",
                         "layout_width": "wrap_content",
                         "layout_height": "wrap_content",
+                        "uim_handleEvents": [
+                            "onClick"
+                        ],
                         "uim_eventPackage": [
                             "test2"
                         ]
