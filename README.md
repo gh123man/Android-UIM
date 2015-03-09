@@ -33,7 +33,7 @@ All listed views and layouts are supported to some degree.
  - [Button](http://developer.android.com/reference/android/widget/Button.html) - complete, but missing inherited text view components
     - [View.OnClickListener.onClick](http://developer.android.com/reference/android/view/View.OnClickListener.html#onClick(android.view.View)) handled
  - [SeekBar](http://developer.android.com/reference/android/widget/SeekBar.html) - incomplete
-    - [SeekBar.OnSeekBarChangeListener.onStopTrackingTouch](http://developer.android.com/reference/android/widget/SeekBar.OnSeekBarChangeListener.html#onStopTrackingTouch(android.widget.SeekBar) handled
+    - [SeekBar.OnSeekBarChangeListener.onStopTrackingTouch](http://developer.android.com/reference/android/widget/SeekBar.OnSeekBarChangeListener.html#onStopTrackingTouch(android.widget.SeekBar)) - handled
 
 ##Special JSON Attributes
 Atribute            |     asdf
