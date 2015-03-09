@@ -7,7 +7,7 @@ UIM enables developers to build android apps with dynamically generated native u
  - Build UIs at runtime
  - Capture events in a global event handler
  - Support for many android UI APIs. (More coming soon)
- - Package views together in an event (more on this in Handling Events)
+ - Package views together in an event - more on this in [Handling Events](#handling-events)
 
 ##TODO
  - Add more View property support
@@ -39,8 +39,8 @@ All listed views and layouts are supported to some degree.
 Attribute           |     Description
 ---------           |     -----------
 `uim_children`      | An array of children, can be any view or layout
-`uim_eventPackage`  | An array of string IDs of other elements. These elements will be packaged in the event propagated by the view this is attached to. 
-`uim_handleEvents`  | An array of string of supported events. Only events supported by the view will be handled.  
+`uim_eventPackage`  | An array of string IDs of other elements. These elements will be packaged in the event propagated by the view this is attached to. NOTE: you can reference an ID here before it is defined in a view (as long as it is defined at some point later)
+`uim_handleEvents`  | An array of strings of supported events. Only events supported by the view will be handled.  
 
 ##Handling Events
 When you implement `IuimEvents`, you must override `onEvent(Event event)`.
