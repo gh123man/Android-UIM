@@ -84,3 +84,87 @@ This method is called whenever a view receives a supported event. The event clas
 
 ![Example](screenshots/example1.png)
 
+##A remote control example
+    {
+        "Version": 1,
+        "RelativeLayout": {
+            "layout_width": "match_parent",
+            "layout_height": "match_parent",
+            "uim_children": [
+                {
+                    "LinearLayout": {
+                        "id": "controls",
+                        "layout_width": "match_parent",
+                        "layout_height": "120dp",
+                        "orientation": "horizontal",
+                        "uim_children": [
+                            { 
+                                "Button": {
+                                    "id": "back",
+                                    "text": "<<",
+                                    "layout_width": "wrap_content",
+                                    "layout_height": "match_parent",
+                                    "weight": 1,
+                                    "uim_handleEvents": [
+                                    "onClick"
+                                    ]
+                                }
+                            },
+                            { 
+                                "Button": {
+                                    "id": "playPause",
+                                    "text": "Play/Pause",
+                                    "layout_width": "wrap_content",
+                                    "layout_height": "match_parent",
+                                    "weight": 3,
+                                    "uim_handleEvents": [
+                                    "onClick"
+                                    ]
+                                }
+                            },
+                            { 
+                                "Button": {
+                                    "id": "forward",
+                                    "text": ">>",
+                                    "layout_width": "wrap_content",
+                                    "layout_height": "match_parent",
+                                    "layout_alignTop": "playPause",
+                                    "weight": 1,
+                                    "uim_handleEvents": [
+                                    "onClick"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                { 
+                    "TextView": {
+                        "id": "volume",
+                        "text": "Volume",
+                        "layout_width": "wrap_content",
+                        "layout_height": "wrap_content",
+                        "layout_below": "controls",
+                        "layout_centerHorizontal": true,
+                        "layout_marginTop": "20dp"
+                    }
+                },
+                {
+                    "SeekBar": {
+                        "id": "seek",
+                        "layout_width": "match_parent",
+                        "layout_height": "wrap_content",
+                        "layout_below": "volume",
+                        "layout_centerHorizontal": true,
+                        "uim_handleEvents": [
+                        "onStopTrackingTouch"
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+                
+####Produces
+
+![Example](screenshots/example2.png)
