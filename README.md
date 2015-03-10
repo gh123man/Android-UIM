@@ -106,7 +106,7 @@ This method is called whenever a view receives a supported event. The event clas
                                     "layout_height": "match_parent",
                                     "weight": 1,
                                     "uim_handleEvents": [
-                                    "onClick"
+                                        "onClick"
                                     ]
                                 }
                             },
@@ -118,7 +118,7 @@ This method is called whenever a view receives a supported event. The event clas
                                     "layout_height": "match_parent",
                                     "weight": 3,
                                     "uim_handleEvents": [
-                                    "onClick"
+                                        "onClick"
                                     ]
                                 }
                             },
@@ -131,7 +131,7 @@ This method is called whenever a view receives a supported event. The event clas
                                     "layout_alignTop": "playPause",
                                     "weight": 1,
                                     "uim_handleEvents": [
-                                    "onClick"
+                                        "onClick"
                                     ]
                                 }
                             }
@@ -157,7 +157,7 @@ This method is called whenever a view receives a supported event. The event clas
                         "layout_below": "volume",
                         "layout_centerHorizontal": true,
                         "uim_handleEvents": [
-                        "onStopTrackingTouch"
+                            "onStopTrackingTouch"
                         ]
                     }
                 }
