@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by brian on 3/7/15.
+ * Global event handler class used for handling all view related events
  */
 public class GlobalEventHandler implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, View.OnLongClickListener {
 
@@ -17,16 +17,34 @@ public class GlobalEventHandler implements View.OnClickListener, SeekBar.OnSeekB
     private HashMap<String, String[]> mPackager;
     private View mRootView;
 
-    public GlobalEventHandler(IuimEvents eventHandler, View root) {
+    /**
+     * Constructs a new GloblaEventHandler class instance
+     *
+     * @param eventHandler the UIM event handler
+     * @param root         the root view
+     */
+    protected GlobalEventHandler(IuimEvents eventHandler, View root) {
         mEventHandler = eventHandler;
         mPackager = new HashMap<>();
         mRootView = root;
     }
 
+    /**
+     * Adds a package of views to the event
+     *
+     * @param key      String view id
+     * @param packaged string Array of view ids
+     */
     public void addEventPackage(String key, String[] packaged) {
         mPackager.put(key, packaged);
     }
 
+    /**
+     * Assembles the view package for an event
+     *
+     * @param id the String view id
+     * @return the collection of views in the package
+     */
     private ArrayList<Packaged> resolvePackage(String id) {
         if (mPackager.containsKey(id)) {
             ArrayList<Packaged> views = new ArrayList<>();
@@ -58,10 +76,13 @@ public class GlobalEventHandler implements View.OnClickListener, SeekBar.OnSeekB
     }
 
     @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) { }
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+    }
 
     @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {}
+    public void onStartTrackingTouch(SeekBar seekBar) {
+    }
+
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
         String id = (String) seekBar.getTag();
