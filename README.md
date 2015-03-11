@@ -12,7 +12,18 @@ UIM enables developers to build android apps with dynamically generated native u
 ##TODO
  - Add more View property support
  - Add more native views (and their events)
-
+ 
+##API
+Full Javadocs of the public API can be found [here](http://gh123man.github.io/Android-UIM/)
+ 
+###Summary of the public API
+ 
+Class               |     Description
+---------           |     -----------
+[Event](http://gh123man.github.io/Android-UIM/com/brian/floersch/uim/AssemblerV1/events/Event.html)      | Contains the context of an event
+[IuimEvents](http://gh123man.github.io/Android-UIM/com/brian/floersch/uim/IuimEvents.html)  | Events used by UIM (you must implement this)
+[UiAssembler](http://gh123man.github.io/Android-UIM/com/brian/floersch/uim/UiAssembler.html)  | This is the core entry point of the library. This class facilitates the view assembly process.
+ 
 ##Usage
  1. Implement `IuimEvents`
  2. Construct a `UiAssembler`
