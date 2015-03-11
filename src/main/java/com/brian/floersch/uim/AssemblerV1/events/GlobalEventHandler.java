@@ -11,7 +11,7 @@ import java.util.HashMap;
 /**
  * Created by brian on 3/7/15.
  */
-public class GlobalEventHandler implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
+public class GlobalEventHandler implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, View.OnLongClickListener {
 
     private IuimEvents mEventHandler;
     private HashMap<String, String[]> mPackager;
@@ -50,6 +50,14 @@ public class GlobalEventHandler implements View.OnClickListener, SeekBar.OnSeekB
     }
 
     @Override
+    public boolean onLongClick(View v) {
+        String id = (String) v.getTag();
+        Event e = new Event(id, v, resolvePackage(id), Event.Type.ON_LONG_CLICK);
+        mEventHandler.onEvent(e);
+        return true;
+    }
+
+    @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) { }
 
     @Override
@@ -60,4 +68,5 @@ public class GlobalEventHandler implements View.OnClickListener, SeekBar.OnSeekB
         Event e = new Event(id, seekBar, resolvePackage(id), Event.Type.ON_STOP_TRACKING_TOUCH);
         mEventHandler.onEvent(e);
     }
+
 }

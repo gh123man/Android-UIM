@@ -88,8 +88,8 @@ public class ViewAttributeHelper {
     }
 
     private static void applyPadding(JSONObject jsonObject, Context context, View view) throws JSONException {
-        int l,r,t,b;
 
+        int l,r,t,b;
         if (jsonObject.has(PADDING)) {
             l = r = t = b = parseDim(jsonObject.getString(PADDING), context);
         } else {

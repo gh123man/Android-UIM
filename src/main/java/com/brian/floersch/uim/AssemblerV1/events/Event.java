@@ -11,7 +11,8 @@ public class Event {
 
     public static enum Type {
         ON_CLICK,
-        ON_STOP_TRACKING_TOUCH
+        ON_STOP_TRACKING_TOUCH,
+        ON_LONG_CLICK
     }
 
     private final String mObjectId;

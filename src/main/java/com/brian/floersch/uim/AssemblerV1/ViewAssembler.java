@@ -17,6 +17,7 @@ public abstract class ViewAssembler {
     private static final String EVENT_PACKAGE = "uim_eventPackage";
     private static final String UIM_HANDLE_EVENT = "uim_handleEvents";
     private static final String ON_CLICK = "onClick";
+    private static final String ON_LONG_CLICK = "onLongClick";
 
     private final JSONObject mJsonObject;
     private View mView;
@@ -79,6 +80,10 @@ public abstract class ViewAssembler {
 
         if (hasEvent(ON_CLICK)) {
             view.setOnClickListener(getAssemblerContext().getEventHandler());
+        }
+
+        if (hasEvent(ON_LONG_CLICK)) {
+            view.setOnLongClickListener(getAssemblerContext().getEventHandler());
         }
 
         if (params instanceof ViewGroup.MarginLayoutParams) {

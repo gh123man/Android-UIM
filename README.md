@@ -29,7 +29,8 @@ All listed views and layouts are supported to some degree.
  - [ViewGroup.LayoutParams](http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html) - complete
  - [ViewGroup](http://developer.android.com/reference/android/view/ViewGroup.LayoutParams.html) - complete
  - [View](http://developer.android.com/reference/android/view/View.html) - very incomplete
- - [View.OnClickListener.onClick](http://developer.android.com/reference/android/view/View.OnClickListener.html#onClick(android.view.View)) handled
+ - [View.OnClickListener.onClick](http://developer.android.com/reference/android/view/View.OnClickListener.html) handled
+ - [View.OnLongClickListener.onLongClick](http://developer.android.com/reference/android/view/View.OnLongClickListener.html) handled
  - [TextView](http://developer.android.com/reference/android/widget/TextView.html) - very incomplete
  - [Button](http://developer.android.com/reference/android/widget/Button.html) - complete, but missing inherited text view components
  - [SeekBar](http://developer.android.com/reference/android/widget/SeekBar.html) - incomplete
