@@ -12,6 +12,8 @@ UIM enables developers to build android apps with dynamically generated native u
 ##TODO
  - Add more View property support
  - Add more native views (and their events)
+ - Add unit tests
+ - Add example project
  
 ##API
 Full Javadocs of the public API can be found [here](http://gh123man.github.io/Android-UIM/)
