@@ -23,7 +23,7 @@ public class GlobalEventHandler implements View.OnClickListener, SeekBar.OnSeekB
      * @param eventHandler the UIM event handler
      * @param root         the root view
      */
-    protected GlobalEventHandler(IuimEvents eventHandler, View root) {
+    public GlobalEventHandler(IuimEvents eventHandler, View root) {
         mEventHandler = eventHandler;
         mPackager = new HashMap<>();
         mRootView = root;
