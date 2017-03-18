@@ -99,6 +99,7 @@ This method is called whenever a view receives a supported event. The event clas
 ![Example](screenshots/example1.png)
 
 ##A remote control example
+
     {
         "Version": 1,
         "RelativeLayout": {
