@@ -1,24 +1,24 @@
-#Android User Interface Markup (UIM)
+# Android User Interface Markup (UIM)
 
 UIM enables developers to build android apps with dynamically generated native user interfaces at runtime. UIs are generated with JSON objects following a format much like Android native XML.
 
 
-##Features
+## Features
  - Build UIs at runtime
  - Capture events in a global event handler
  - Support for many android UI APIs. (More coming soon)
  - Package views together in an event - more on this in [Handling Events](#handling-events)
 
-##TODO
+## TODO
  - Add more View property support
  - Add more native views (and their events)
  - Add unit tests
  - Add example project
  
-##API
+## API
 Full Javadocs of the public API can be found [here](http://gh123man.github.io/Android-UIM/)
  
-###Summary of the public API
+### Summary of the public API
  
 Class               |     Description
 ---------           |     -----------
@@ -26,13 +26,13 @@ Class               |     Description
 [IuimEvents](http://gh123man.github.io/Android-UIM/com/brian/floersch/uim/IuimEvents.html)  | Events used by UIM (you must implement this)
 [UiAssembler](http://gh123man.github.io/Android-UIM/com/brian/floersch/uim/UiAssembler.html)  | This is the core entry point of the library. This class facilitates the view assembly process.
  
-##Usage
+## Usage
  1. Implement `IuimEvents`
  2. Construct a `UiAssembler`
  3. call `UiAssembler.parseAndApplyView()` when you are ready to build the UI and set up event handlers. `.parseAndApplyView()` will automatically add the new view to the parent you supplied in the constructor. 
  
-##Supported Views and layouts
-###Supports layout/view up to API level 10 (2.3.3)
+## Supported Views and layouts
+### Supports layout/view up to API level 10 (2.3.3)
 All listed views and layouts are supported to some degree. 
  - [LinearLayout](http://developer.android.com/reference/android/widget/LinearLayout.html) - complete
  - [LinerLayout.LayoutParams](http://developer.android.com/reference/android/widget/LinearLayout.LayoutParams.html) - complete
@@ -49,18 +49,18 @@ All listed views and layouts are supported to some degree.
  - [SeekBar](http://developer.android.com/reference/android/widget/SeekBar.html) - incomplete
  - [SeekBar.OnSeekBarChangeListener.onStopTrackingTouch](http://developer.android.com/reference/android/widget/SeekBar.OnSeekBarChangeListener.html#onStopTrackingTouch(android.widget.SeekBar)) - handled
 
-##Special JSON Attributes
+## Special JSON Attributes
 Attribute           |     Description
 ---------           |     -----------
 `uim_children`      | An array of children, can be any view or layout
 `uim_eventPackage`  | An array of string IDs of other elements. These elements will be packaged in the event propagated by the view this is attached to. NOTE: you can reference an ID here before it is defined in a view (as long as it is defined at some point later)
 `uim_handleEvents`  | An array of strings of supported events. Only events supported by the view will be handled.  
 
-##Handling Events
+## Handling Events
 When you implement `IuimEvents`, you must override `onEvent(Event event)`.
 This method is called whenever a view receives a supported event. The event class contains the String ID of the object provided in JSON, the View itself and an array of packaged views (as defined in JSON). It is up to you to decide how you want to handle these events. 
 
-##Simple Example
+## Simple Example
 
     {
         "Version": 1,
@@ -94,11 +94,11 @@ This method is called whenever a view receives a supported event. The event clas
         }
     }
 
-####Produces
+#### Produces
 
 ![Example](screenshots/example1.png)
 
-##A remote control example
+## A remote control example
 
     {
         "Version": 1,
@@ -180,6 +180,6 @@ This method is called whenever a view receives a supported event. The event clas
         }
     }
                 
-####Produces
+#### Produces
 
 ![Example](screenshots/example2.png)
